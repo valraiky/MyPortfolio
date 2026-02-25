@@ -4,12 +4,18 @@ import {
   CodeBracketIcon, 
   ClockIcon, 
   PuzzlePieceIcon, 
-  HeartIcon 
+  HeartIcon, 
+  RocketLaunchIcon,
+  AdjustmentsHorizontalIcon,
+  UserGroupIcon
 } from '@heroicons/react/24/outline';
+import { IoCodeSlashOutline } from "react-icons/io5";
+
+
 
 const Apropos = () => {
   const stats = [
-    { icon: ClockIcon, value: "En stage depuis 2022", label: "Années d'expérience" },
+    { icon: ClockIcon, value: "1+", label: "Années d'expérience"},
     { icon: CodeBracketIcon, value: "20+", label: "Projets réalisés" },
     { icon: PuzzlePieceIcon, value: "15+", label: "Technologies maîtrisées" },
     { icon: HeartIcon, value: "90%", label: "Satisfaction client" }
@@ -136,17 +142,20 @@ const Apropos = () => {
               {
                 title: "Développement Full-Stack",
                 description: "Création d'applications web complètes avec les technologies modernes",
-                color: "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400"
+                color: "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400",
+                url: "fulstack.jpeg"
               },
               {
                 title: "DevOps & Cloud",
                 description: "Automatisation des déploiements et gestion d'infrastructure cloud",
-                color: "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400"
+                color: "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400",
+                url: "devOps.png"
               },
               {
                 title: "IA & Data Science",
                 description: "Exploration de données et implémentation de solutions d'intelligence artificielle",
-                color: "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400"
+                color: "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400",
+                url: "AI.jpeg"
               }
             ].map((domain, index) => (
               <motion.div
@@ -155,8 +164,8 @@ const Apropos = () => {
                 whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className={`w-12 h-12 rounded-lg ${domain.color} flex items-center justify-center mb-4`}>
-                  <div className="w-6 h-6">•</div>
+                <div className={`w-16 h-16 rounded-lg ${domain.color} flex items-center justify-center mb-4`}>
+                  <img className='w-full h-full' src={domain.url} alt="" />
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   {domain.title}
@@ -168,6 +177,67 @@ const Apropos = () => {
             ))}
           </div>
         </motion.div>
+
+        <motion.div 
+          className="mt-20"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+            Mes valeurs
+          </h3>
+          
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {[
+              {
+                title: "Code Propre",
+                description: "Je privilégie la qualité du code et les bonnes pratiques de développement en respactant SOLID, TDD",
+                color: "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400",
+                icone: <IoCodeSlashOutline className="h-6 w-6" />
+              },
+              {
+                title: "Innovation",
+                description: "Toujours à la recherche de nouvelles technologies et solutions innovantes",
+                color: "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-400",
+                icone: <RocketLaunchIcon className="h-6 w-6" />
+              },
+              {
+                title: "Précision",
+                description: "Attention aux détails et respect des spécifications pour un résultat optimal.",
+                color: "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400",
+                icone: <AdjustmentsHorizontalIcon className="h-6 w-6" />
+              },
+              {
+                title: "Collaboration",
+                description: "Travail d'équipe efficace et communication transparente avec les clients.",
+                color: "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-400",
+                icone: <UserGroupIcon className="h-6 w-6" />
+              }
+            ].map((domain, index) => (
+              <motion.div
+                key={index}
+                className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700"
+                whileHover={{ y: -5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <div className={`w-16 h-16 rounded-lg ${domain.color} flex items-center justify-center mb-4`}>
+                  {domain.icone}
+                </div>
+                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  {domain.title}
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {domain.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+
+
       </div>
     </section>
   );

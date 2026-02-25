@@ -1,7 +1,13 @@
 import Accueil from './components/Acueil/Accueil';
 import Apropos from './components/Acueil/Apropos/Apropos';
+import Experience from './components/Acueil/Apropos/Experience';
 import AnimatedText from './components/AnimatedText';
+import Competences from './components/Competences/Competences';
+import CompetencesTransversales from './components/CompetencesTransversales/CompetencesTransversales';
+import Contact from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header';
+import ProjetsRealises from './components/ProjetsRealises/ProjetsRealises';
 
 const App = () => {
   return (
@@ -12,47 +18,25 @@ const App = () => {
         {/* Section Accueil */}
         <Accueil />
 
-
-
-
-
-
-
-
         {/* Section À propos */}
         <Apropos />
 
         {/* Section Expérience */}
-        <section id="experience" className="min-h-screen pt-20">
-          <div className="max-w-[1500px] mx-auto p-6">
-            <h2 className="text-3xl font-bold">Expérience</h2>
-            {/* Votre contenu expérience */}
-          </div>
-        </section>
+        <Experience />
 
         {/* Section Compétences */}
-        <section id="competences" className="min-h-screen pt-20">
-          <div className="max-w-[1500px] mx-auto p-6">
-            <h2 className="text-3xl font-bold">Compétences</h2>
-            {/* Votre contenu compétences */}
-          </div>
-        </section>
+        <Competences />
+        
+        {/* CompetencesTransversales */}
+        <CompetencesTransversales />
 
         {/* Section Projets */}
-        <section id="projets" className="min-h-screen pt-20">
-          <div className="max-w-[1500px] mx-auto p-6">
-            <h2 className="text-3xl font-bold">Projets</h2>
-            {/* Votre contenu projets */}
-          </div>
-        </section>
+        <ProjetsRealises />
 
         {/* Section Contact */}
-        <section id="contact" className="min-h-screen pt-20">
-          <div className="max-w-[1500px] mx-auto p-6">
-            <h2 className="text-3xl font-bold">Contact</h2>
-            {/* Votre contenu contact */}
-          </div>
-        </section>
+        <Contact />
+
+        <Footer />
       </main>
     </div>
   );
